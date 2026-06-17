@@ -52,7 +52,7 @@ Specjalizacja obejmuje pełny proces tworzenia gier: od prototypowania, przez mo
 | Animacje komputerowe | 6 | 30 | 30 | egzamin | 5 |
 | Wytwarzanie Gier 2 | 7 | 30 | 30 | egzamin | 5 |
 
-> Aleksander Polin
+> dr P. Arłukowicz, Aleksander Polin
 
 ## Sztuczna inteligencja
 
