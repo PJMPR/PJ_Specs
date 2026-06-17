@@ -26,7 +26,7 @@ Specjalizacja skupiona na projektowaniu, tworzeniu i utrzymaniu nowoczesnych apl
 | Technologie DevOps | 6 | 30 | 30 | egzamin | 5 |
 | Trendy w Aplikacjach Internetowych | 7 | 30 | 30 | egzamin | 5 |
 
-> mgr inż. Adam Urbanowicz, mgr Mateusz Miotk
+> dr hab. M. Bednarczyk, mgr inż. Adam Urbanowicz, mgr Mateusz Miotk
 
 ## Cyberbezpieczeństwo
 
