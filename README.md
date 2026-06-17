@@ -65,7 +65,7 @@ Specjalizacja koncentruje się na uczeniu maszynowym, metodach głębokiego ucze
 | Computer Vision | 6 | 30 | 30 | egzamin | 5 |
 | Przetwarzanie języka naturalnego | 7 | 30 | 30 | egzamin | 5 |
 
-> dr hab. Jacek Winiarski, dr. Albert Śledzianiowski
+> dr hab. Jacek Winiarski, dr. Albert Śledzianiowski, mgr Paweł Czapiewski
 
 ## Internet rzeczy
 
