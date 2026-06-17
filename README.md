@@ -78,7 +78,7 @@ Specjalizacja związana z projektowaniem rozwiązań IoT, szybkim prototypowanie
 | Komunikacja i protokoły dla Internetu Rzeczy | 6 | 30 | 30 | egzamin | 5 |
 | Programowanie platform sprzętowych | 7 | 30 | 30 | egzamin | 5 |
 
-> dr R. Suski, mgr Michał Hyla, Antoni Ulenberg, Marek Kudła
+> dr inż. P. Syty, mgr Michał Hyla, Antoni Ulenberg, Marek Kudła
 
 ---
 
