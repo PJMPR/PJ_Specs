@@ -4,7 +4,6 @@ Zestawienie specjalizacji dla studiów stacjonarnych I stopnia na kierunku **Inf
 
 > Student wybiera jedną specjalizację na cały tok studiów. Przedmioty specjalizacyjne są realizowane w semestrach 5-7. Każda specjalizacja obejmuje 4 przedmioty po 5 ECTS, łącznie **20 ECTS**.
 
-## Szybkie porównanie
 
 | Specjalizacja | Obszar | Liczba przedmiotów | Łącznie ECTS | Semestry |
 |---|---:|---:|---:|---:|
