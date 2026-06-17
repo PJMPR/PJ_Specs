@@ -44,10 +44,10 @@ Specjalizacja obejmuje pełny proces tworzenia gier: od prototypowania, przez mo
 
 | Przedmiot | Semestr | Wykład | Laboratorium | Zaliczenie | ECTS |
 |---|---:|---:|---:|---|---:|
-| Prototypowanie gier komputerowych | 5 | 30 | 30 | egzamin | 5 |
+| Wytwarzanie Gier 1 | 5 | 30 | 30 | egzamin | 5 |
 | Modelowanie 3D dla gier | 5 | 30 | 30 | egzamin | 5 |
-| Silniki gier komputerowych | 6 | 30 | 30 | egzamin | 5 |
-| Projektowanie gier komputerowych | 7 | 30 | 30 | egzamin | 5 |
+| Animacje komputerowe | 6 | 30 | 30 | egzamin | 5 |
+| Wytwarzanie Gier 2 | 7 | 30 | 30 | egzamin | 5 |
 
 ## Sztuczna inteligencja
 
@@ -56,7 +56,7 @@ Specjalizacja koncentruje się na uczeniu maszynowym, metodach głębokiego ucze
 | Przedmiot | Semestr | Wykład | Laboratorium | Zaliczenie | ECTS |
 |---|---:|---:|---:|---|---:|
 | Wstęp do nauczania maszynowego | 5 | 30 | 30 | egzamin | 5 |
-| Nowoczesne metody uczenia głębokiego | 5 | 30 | 30 | egzamin | 5 |
+| Future of Deep Learning | 5 | 30 | 30 | egzamin | 5 |
 | Computer Vision | 6 | 30 | 30 | egzamin | 5 |
 | Przetwarzanie języka naturalnego | 7 | 30 | 30 | egzamin | 5 |
 
