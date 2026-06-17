@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Specjalizacje — Informatyka PJATK Gdańsk</title>
+  <style>
+    :root {
+      --color-ai:     #059669;
+      --color-web:    #2563EB;
+      --color-cyber:  #DC2626;
+      --color-games:  #7C3AED;
+      --color-iot:    #EA580C;
+      --bg:           #f8fafc;
+      --surface:      #ffffff;
+      --text:         #1e293b;
+      --muted:        #64748b;
+      --border:       #e2e8f0;
+      --radius:       12px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ─── HEADER ─────────────────────────────────────── */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+      color: #fff;
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+    }
+    header .kicker {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.6;
+      margin-bottom: 0.5rem;
+    }
+    header h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+    }
+    header p.subtitle {
+      margin-top: 0.75rem;
+      font-size: 1.05rem;
+      opacity: 0.75;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .badge {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    /* ─── NAV ────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 6px rgba(0,0,0,.07);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav-inner a {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      white-space: nowrap;
+      padding: 1rem 1.1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    .nav-inner a:hover          { color: var(--text); }
+    .nav-inner a.ai:hover,  .nav-inner a.ai.active   { color: var(--color-ai);    border-color: var(--color-ai);    }
+    .nav-inner a.web:hover, .nav-inner a.web.active   { color: var(--color-web);   border-color: var(--color-web);   }
+    .nav-inner a.cyber:hover,.nav-inner a.cyber.active{ color: var(--color-cyber); border-color: var(--color-cyber); }
+    .nav-inner a.games:hover,.nav-inner a.games.active{ color: var(--color-games); border-color: var(--color-games); }
+    .nav-inner a.iot:hover,  .nav-inner a.iot.active  { color: var(--color-iot);   border-color: var(--color-iot);   }
+    .nav-inner a .dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    }
+
+    /* ─── MAIN LAYOUT ────────────────────────────────── */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    /* ─── SECTION HEADER ─────────────────────────────── */
+    .section-intro {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .section-bar {
+      width: 6px;
+      border-radius: 4px;
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+    .section-intro h2 {
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 800;
+    }
+    .section-intro p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 0.25rem;
+    }
+
+    /* ─── OVERVIEW TABLE ─────────────────────────────── */
+    .overview-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+    .overview-section h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 1.1rem 1.5rem;
+      background: #f1f5f9;
+      border-bottom: 1px solid var(--border);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    thead th {
+      background: #f8fafc;
+      padding: 0.7rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    tbody tr:not(:last-child) td { border-bottom: 1px solid var(--border); }
+    tbody td { padding: 0.75rem 1rem; vertical-align: middle; }
+    tbody tr:hover td { background: #f8fafc; }
+    .spec-name {
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .spec-dot {
+      width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+    }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+    .tag {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.15rem 0.5rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .ects-badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      border-radius: 100px;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    /* ─── SPECIALIZATION SECTION ─────────────────────── */
+    .spec-section { margin-bottom: 4rem; scroll-margin-top: 70px; }
+
+    .plan-table-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+    .plan-table-wrap h3 {
+      padding: 0.9rem 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid var(--border);
+      background: #f8fafc;
+    }
+
+    /* subject cards */
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .subject-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .subject-card-header {
+      padding: 0.9rem 1.1rem;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .subject-card-header h4 { font-size: 0.95rem; font-weight: 700; line-height: 1.3; }
+    .sem-badge {
+      background: rgba(255,255,255,0.25);
+      border-radius: 6px;
+      padding: 0.15rem 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .subject-card-body { padding: 1rem 1.1rem; flex: 1; }
+    .subject-card-body ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .subject-card-body li {
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding-left: 1rem;
+      position: relative;
+    }
+    .subject-card-body li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--border-accent, #94a3b8);
+    }
+    .subject-card-footer {
+      padding: 0.75rem 1.1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--muted);
+      display: flex;
+      gap: 1rem;
+    }
+    .subject-card-footer span { display: flex; align-items: center; gap: 0.3rem; }
+
+    /* lecturers */
+    .lecturers {
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding: 0.6rem 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .lecturers::before { content: '👨‍🏫'; font-size: 0.9rem; }
+
+    /* ─── SUMMARY SECTION ────────────────────────────── */
+    .summary-section {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      color: #fff;
+      margin-top: 1rem;
+    }
+    .summary-section h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .summary-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+    }
+    .summary-card .num {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .summary-card p { font-size: 0.82rem; opacity: 0.7; margin-top: 0.3rem; }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 600px) {
+      .subjects-grid { grid-template-columns: 1fr; }
+      thead { display: none; }
+      tbody tr { display: block; padding: 0.5rem 0; }
+      tbody td { display: flex; gap: 0.5rem; padding: 0.35rem 1rem; }
+      tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--muted);
+        min-width: 90px;
+        font-size: 0.78rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header>
+  <p class="kicker">Polsko-Japońska Akademia Technik Komputerowych · Gdańsk</p>
+  <h1>Specjalizacje<br>Informatyki I stopnia</h1>
+  <p class="subtitle">Studia stacjonarne · semestry 5–7 · 20 ECTS na specjalizację</p>
+  <div class="badge-row">
+    <span class="badge">🌐 Aplikacje Internetowe</span>
+    <span class="badge">🔐 Cyberbezpieczeństwo</span>
+    <span class="badge">🎮 Inżynieria Gier</span>
+    <span class="badge">🤖 Sztuczna Inteligencja</span>
+    <span class="badge">📡 Internet Rzeczy</span>
+  </div>
+</header>
+
+<!-- ═══════════════════ NAVIGATION ═══════════════ -->
+<nav aria-label="Specjalizacje">
+  <div class="nav-inner">
+    <a href="#overview">Przegląd</a>
+    <a href="#web" class="web">
+      <span class="dot" style="background:var(--color-web)"></span>Aplikacje Internetowe
+    </a>
+    <a href="#cyber" class="cyber">
+      <span class="dot" style="background:var(--color-cyber)"></span>Cyberbezpieczeństwo
+    </a>
+    <a href="#games" class="games">
+      <span class="dot" style="background:var(--color-games)"></span>Inżynieria Gier
+    </a>
+    <a href="#ai" class="ai">
+      <span class="dot" style="background:var(--color-ai)"></span>Sztuczna Inteligencja
+    </a>
+    <a href="#iot" class="iot">
+      <span class="dot" style="background:var(--color-iot)"></span>Internet Rzeczy
+    </a>
+  </div>
+</nav>
+
+<!-- ═══════════════════ MAIN ════════════════════ -->
+<main>
+
+  <!-- OVERVIEW -->
+  <section id="overview" style="scroll-margin-top:70px; margin-bottom:3rem;">
+    <div class="overview-section">
+      <h2>📋 Zestawienie specjalizacji</h2>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Specjalizacja</th>
+              <th>Obszar tematyczny</th>
+              <th>Przedmioty</th>
+              <th>ECTS</th>
+              <th>Semestry</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Specjalizacja">
+                <span class="spec-name">
+                  <span class="spec-dot" style="background:var(--color-web)"></span>
+                  <a href="#web" style="color:var(--color-web);text-decoration:none;">Aplikacje Internetowe</a>
+                </span>
+              </td>
+              <td data-label="Obszar">
+                <span class="tag-list">
+                  <span class="tag">web</span><span class="tag">backend</span><span class="tag">frontend</span><span class="tag">DevOps</span>
+                </span>
+              </td>
+              <td data-label="Przedmioty">4</td>
+              <td data-label="ECTS"><span class="ects-badge">20</span></td>
+              <td data-label="Semestry">5–7</td>
+            </tr>
+            <tr>
+              <td data-label="Specjalizacja">
+                <span class="spec-name">
+                  <span class="spec-dot" style="background:var(--color-cyber)"></span>
+                  <a href="#cyber" style="color:var(--color-cyber);text-decoration:none;">Cyberbezpieczeństwo</a>
+                </span>
+              </td>
+              <td data-label="Obszar">
+                <span class="tag-list">
+                  <span class="tag">bezpieczeństwo IT</span><span class="tag">pentesting</span><span class="tag">SOC</span>
+                </span>
+              </td>
+              <td data-label="Przedmioty">4</td>
+              <td data-label="ECTS"><span class="ects-badge">20</span></td>
+              <td data-label="Semestry">5–7</td>
+            </tr>
+            <tr>
+              <td data-label="Specjalizacja">
+                <span class="spec-name">
+                  <span class="spec-dot" style="background:var(--color-games)"></span>
+                  <a href="#games" style="color:var(--color-games);text-decoration:none;">Inżynieria Gier Komputerowych</a>
+                </span>
+              </td>
+              <td data-label="Obszar">
+                <span class="tag-list">
+                  <span class="tag">game design</span><span class="tag">Unreal Engine</span><span class="tag">3D</span>
+                </span>
+              </td>
+              <td data-label="Przedmioty">4</td>
+              <td data-label="ECTS"><span class="ects-badge">20</span></td>
+              <td data-label="Semestry">5–7</td>
+            </tr>
+            <tr>
+              <td data-label="Specjalizacja">
+                <span class="spec-name">
+                  <span class="spec-dot" style="background:var(--color-ai)"></span>
+                  <a href="#ai" style="color:var(--color-ai);text-decoration:none;">Sztuczna Inteligencja</a>
+                </span>
+              </td>
+              <td data-label="Obszar">
+                <span class="tag-list">
+                  <span class="tag">machine learning</span><span class="tag">deep learning</span><span class="tag">NLP</span>
+                </span>
+              </td>
+              <td data-label="Przedmioty">4</td>
+              <td data-label="ECTS"><span class="ects-badge">20</span></td>
+              <td data-label="Semestry">5–7</td>
+            </tr>
+            <tr>
+              <td data-label="Specjalizacja">
+                <span class="spec-name">
+                  <span class="spec-dot" style="background:var(--color-iot)"></span>
+                  <a href="#iot" style="color:var(--color-iot);text-decoration:none;">Internet Rzeczy</a>
+                </span>
+              </td>
+              <td data-label="Obszar">
+                <span class="tag-list">
+                  <span class="tag">IoT</span><span class="tag">prototypowanie</span><span class="tag">RTOS</span>
+                </span>
+              </td>
+              <td data-label="Przedmioty">4</td>
+              <td data-label="ECTS"><span class="ects-badge">20</span></td>
+              <td data-label="Semestry">5–7</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="summary-section">
+      <h2>Organizacja studiów</h2>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <div class="num">5</div>
+          <p>specjalizacji do wyboru</p>
+        </div>
+        <div class="summary-card">
+          <div class="num">4</div>
+          <p>przedmioty w każdej specjalizacji</p>
+        </div>
+        <div class="summary-card">
+          <div class="num">20</div>
+          <p>punktów ECTS na specjalizację</p>
+        </div>
+        <div class="summary-card">
+          <div class="num">5–7</div>
+          <p>semestry realizacji przedmiotów</p>
+        </div>
+        <div class="summary-card">
+          <div class="num">60h</div>
+          <p>zajęć na przedmiot (30W + 30L)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ APLIKACJE INTERNETOWE ═══ -->
+  <section id="web" class="spec-section">
+    <div class="section-intro">
+      <div class="section-bar" style="background:var(--color-web)"></div>
+      <div>
+        <h2 style="color:var(--color-web)">🌐 Aplikacje Internetowe</h2>
+        <p>Projektowanie, tworzenie i utrzymanie nowoczesnych aplikacji — backend, frontend i DevOps.</p>
+      </div>
+    </div>
+
+    <div class="plan-table-wrap" style="margin-bottom:1.25rem;">
+      <h3>Plan specjalizacji</h3>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Przedmiot</th><th>Semestr</th><th>Wykład</th><th>Laboratorium</th><th>Zaliczenie</th><th>ECTS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Technologie Backend</td>
+              <td data-label="Semestr">5</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Technologie Frontend</td>
+              <td data-label="Semestr">5</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Technologie DevOps</td>
+              <td data-label="Semestr">6</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Trendy w Aplikacjach Internetowych</td>
+              <td data-label="Semestr">7</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="subjects-grid">
+      <!-- Backend -->
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:var(--color-web)">
+          <h4>Technologie Backend</h4>
+          <span class="sem-badge">Sem. 5</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>JavaScript po stronie serwera</li>
+            <li>Node.js i npm, asynchroniczność</li>
+            <li>Protokół HTTP/HTTPS, middleware</li>
+            <li>Obsługa sesji i formularzy</li>
+            <li>Dokumentowe bazy danych</li>
+            <li>Operacje CRUD, indeksowanie</li>
+            <li>Projektowanie REST API</li>
+            <li>Bezpieczeństwo i testowanie</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span>
+          <span>🔬 30h lab</span>
+        </div>
+      </div>
+      <!-- Frontend -->
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:var(--color-web)">
+          <h4>Technologie Frontend</h4>
+          <span class="sem-badge">Sem. 5</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>HTML, CSS i preprocesory CSS</li>
+            <li>Responsywność i dostępność</li>
+            <li>Architektura SPA</li>
+            <li>React i JSX</li>
+            <li>Zarządzanie stanem</li>
+            <li>Routing i formularze</li>
+            <li>Integracja z backendem</li>
+            <li>Testowanie i optymalizacja</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span>
+          <span>🔬 30h lab</span>
+        </div>
+      </div>
+      <!-- DevOps -->
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:#1d4ed8">
+          <h4>Technologie DevOps</h4>
+          <span class="sem-badge">Sem. 6</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>Konteneryzacja i Docker</li>
+            <li>Dockerfile, obrazy, wolumeny</li>
+            <li>Docker Compose</li>
+            <li>CI/CD i Jenkins</li>
+            <li>Automatyzacja z Ansible</li>
+            <li>Wdrażanie w chmurze</li>
+            <li>Monitoring aplikacji</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span>
+          <span>🔬 30h lab</span>
+        </div>
+      </div>
+      <!-- Trendy -->
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:#1e40af">
+          <h4>Trendy w Aplikacjach Internetowych</h4>
+          <span class="sem-badge">Sem. 7</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>REST, SOAP, GraphQL, gRPC</li>
+            <li>Dobre praktyki projektowania API</li>
+            <li>OpenAPI, Swagger, Postman</li>
+            <li>TypeScript</li>
+            <li>Bezpieczeństwo API</li>
+            <li>Skalowalność i wydajność</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span>
+          <span>🔬 30h lab</span>
+        </div>
+      </div>
+    </div>
+    <p class="lecturers">dr hab. M. Bednarczyk, mgr inż. Adam Urbanowicz, mgr Mateusz Miotk</p>
+  </section>
+
+  <!-- ═══ CYBERBEZPIECZEŃSTWO ═══ -->
+  <section id="cyber" class="spec-section">
+    <div class="section-intro">
+      <div class="section-bar" style="background:var(--color-cyber)"></div>
+      <div>
+        <h2 style="color:var(--color-cyber)">🔐 Cyberbezpieczeństwo</h2>
+        <p>Analiza incydentów, testowanie bezpieczeństwa i projektowanie odpornych architektur IT.</p>
+      </div>
+    </div>
+
+    <div class="plan-table-wrap" style="margin-bottom:1.25rem;">
+      <h3>Plan specjalizacji</h3>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Przedmiot</th><th>Semestr</th><th>Wykład</th><th>Laboratorium</th><th>Zaliczenie</th><th>ECTS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Kryminalistyka cyfrowa</td>
+              <td data-label="Semestr">5</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Analiza incydentów cyberbezpieczeństwa</td>
+              <td data-label="Semestr">5</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Testowanie bezpieczeństwa systemów IT</td>
+              <td data-label="Semestr">6</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Projektowanie bezpiecznych architektur IT</td>
+              <td data-label="Semestr">7</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="subjects-grid">
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:var(--color-cyber)">
+          <h4>Kryminalistyka Cyfrowa</h4>
+          <span class="sem-badge">Sem. 5</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>Podstawy kryminalistyki cyfrowej</li>
+            <li>Bezpieczeństwo w modelu OSI</li>
+            <li>Analiza ruchu sieciowego</li>
+            <li>Analiza logów systemowych</li>
+            <li>Analiza nośników i oprogramowania</li>
+            <li>Administracja GNU/Linux</li>
+            <li>Protokoły HTTP, DNS i poczty</li>
+            <li>Bezpieczeństwo sieci Wi-Fi</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span><span>🔬 30h lab</span>
+        </div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:var(--color-cyber)">
+          <h4>Analiza Incydentów Cyberbezpieczeństwa</h4>
+          <span class="sem-badge">Sem. 5</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>Ransomware, malware, cryptojacking</li>
+            <li>Zagrożenia poczty elektronicznej</li>
+            <li>Zagrożenia dla danych i dostępności</li>
+            <li>Dezinformacja</li>
+            <li>Reakcja i prewencja</li>
+            <li>Organizacja pracy SOC</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span><span>🔬 30h lab</span>
+        </div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:#b91c1c">
+          <h4>Testowanie Bezpieczeństwa Systemów IT</h4>
+          <span class="sem-badge">Sem. 6</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>Metodologia testów penetracyjnych</li>
+            <li>Rozpoznanie i skanowanie</li>
+            <li>Metasploit</li>
+            <li>SQL Injection i XSS</li>
+            <li>Kontrola dostępu</li>
+            <li>Błędy konfiguracji</li>
+            <li>Testy Black Box</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span><span>🔬 30h lab</span>
+        </div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:#991b1b">
+          <h4>Projektowanie Bezpiecznych Architektur IT</h4>
+          <span class="sem-badge">Sem. 7</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>Diagramy przepływu danych DFD</li>
+            <li>Projektowanie architektury IT</li>
+            <li>Klasyfikacja informacji</li>
+            <li>Identyfikacja zasobów i zagrożeń</li>
+            <li>Szacowanie ryzyka</li>
+            <li>Standardy bezpieczeństwa</li>
+            <li>Rekomendacje bezpieczeństwa</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span><span>🔬 30h lab</span>
+        </div>
+      </div>
+    </div>
+    <p class="lecturers">mgr Andrzej Stojek, mgr Michał Hyla, mgr Paweł Lelental</p>
+  </section>
+
+  <!-- ═══ INŻYNIERIA GIER ═══ -->
+  <section id="games" class="spec-section">
+    <div class="section-intro">
+      <div class="section-bar" style="background:var(--color-games)"></div>
+      <div>
+        <h2 style="color:var(--color-games)">🎮 Inżynieria Gier Komputerowych</h2>
+        <p>Od prototypowania i modelowania 3D, przez silniki gier, po animacje i komercjalizację.</p>
+      </div>
+    </div>
+
+    <div class="plan-table-wrap" style="margin-bottom:1.25rem;">
+      <h3>Plan specjalizacji</h3>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Przedmiot</th><th>Semestr</th><th>Wykład</th><th>Laboratorium</th><th>Zaliczenie</th><th>ECTS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Wytwarzanie Gier 1</td>
+              <td data-label="Semestr">5</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Modelowanie 3D dla gier</td>
+              <td data-label="Semestr">5</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Animacje komputerowe</td>
+              <td data-label="Semestr">6</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Wytwarzanie Gier 2</td>
+              <td data-label="Semestr">7</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="subjects-grid">
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:var(--color-games)">
+          <h4>Wytwarzanie Gier 1</h4>
+          <span class="sem-badge">Sem. 5</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>Podstawy projektowania gier</li>
+            <li>Mechaniki i prototypowanie</li>
+            <li>Projektowanie poziomów</li>
+            <li>Unreal Engine 5 i Blueprints</li>
+            <li>Asset Pipeline</li>
+            <li>Game Design Document</li>
+            <li>Praca zespołowa</li>
+            <li>Testowanie i kontrola jakości</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span><span>🔬 30h lab</span>
+        </div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:var(--color-games)">
+          <h4>Modelowanie 3D dla Gier</h4>
+          <span class="sem-badge">Sem. 5</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>Blender — obsługa i edycja siatki</li>
+            <li>Modelowanie low-poly i high-poly</li>
+            <li>Rzeźbienie cyfrowe</li>
+            <li>Oświetlenie i materiały</li>
+            <li>Tekstury i mapowanie UV</li>
+            <li>Wypalanie tekstur</li>
+            <li>Optymalizacja sceny 3D</li>
+            <li>Rendering i compositing</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span><span>🔬 30h lab</span>
+        </div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:#6d28d9">
+          <h4>Animacje Komputerowe</h4>
+          <span class="sem-badge">Sem. 6</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>Animacja klatkowa i krzywe ruchu</li>
+            <li>12 zasad animacji</li>
+            <li>Rigging i armatury</li>
+            <li>Forward i inverse kinematics</li>
+            <li>Walk cycle</li>
+            <li>Motion capture</li>
+            <li>Edytor NLA</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span><span>🔬 30h lab</span>
+        </div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:#5b21b6">
+          <h4>Wytwarzanie Gier 2</h4>
+          <span class="sem-badge">Sem. 7</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>Analityka i dane o graczach</li>
+            <li>Marketing i promocja</li>
+            <li>Projektowanie narracji</li>
+            <li>Balansowanie trudności</li>
+            <li>Optymalizacja grafiki i kodu</li>
+            <li>Modele biznesowe i monetyzacja</li>
+            <li>Prezentacja finalnego projektu</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span><span>🔬 30h lab</span>
+        </div>
+      </div>
+    </div>
+    <p class="lecturers">dr P. Arłukowicz, Aleksander Polin</p>
+  </section>
+
+  <!-- ═══ SZTUCZNA INTELIGENCJA ═══ -->
+  <section id="ai" class="spec-section">
+    <div class="section-intro">
+      <div class="section-bar" style="background:var(--color-ai)"></div>
+      <div>
+        <h2 style="color:var(--color-ai)">🤖 Sztuczna Inteligencja</h2>
+        <p>Uczenie maszynowe, głębokie sieci neuronowe, widzenie komputerowe i przetwarzanie języka.</p>
+      </div>
+    </div>
+
+    <div class="plan-table-wrap" style="margin-bottom:1.25rem;">
+      <h3>Plan specjalizacji</h3>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Przedmiot</th><th>Semestr</th><th>Wykład</th><th>Laboratorium</th><th>Zaliczenie</th><th>ECTS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Wstęp do nauczania maszynowego</td>
+              <td data-label="Semestr">5</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Future of Deep Learning</td>
+              <td data-label="Semestr">5</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Computer Vision</td>
+              <td data-label="Semestr">6</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Przetwarzanie języka naturalnego</td>
+              <td data-label="Semestr">7</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="subjects-grid">
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:var(--color-ai)">
+          <h4>Wstęp do Nauczania Maszynowego</h4>
+          <span class="sem-badge">Sem. 5</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>Przygotowanie i jakość danych</li>
+            <li>Podstawy Pythona</li>
+            <li>Sieci neuronowe i propagacja wsteczna</li>
+            <li>Optymalizatory i funkcje aktywacji</li>
+            <li>Regularyzacja i dropout</li>
+            <li>Sieci splotowe i rekurencyjne</li>
+            <li>Transfer learning</li>
+            <li>Uczenie nienadzorowane</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span><span>🔬 30h lab</span>
+        </div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:var(--color-ai)">
+          <h4>Future of Deep Learning</h4>
+          <span class="sem-badge">Sem. 5</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>Foundation models</li>
+            <li>Self-supervised learning</li>
+            <li>Modele multimodalne</li>
+            <li>Skalowanie modeli</li>
+            <li>Interpretowalność AI</li>
+            <li>Responsible AI</li>
+            <li>Analiza publikacji naukowych</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span><span>🔬 30h lab</span>
+        </div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:#047857">
+          <h4>Computer Vision</h4>
+          <span class="sem-badge">Sem. 6</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>Przetwarzanie obrazów cyfrowych</li>
+            <li>Segmentacja i detekcja</li>
+            <li>CNN i transformery wizyjne</li>
+            <li>R-CNN i YOLO</li>
+            <li>GAN i modele dyfuzyjne</li>
+            <li>OpenCV, PyTorch, HuggingFace</li>
+            <li>Śledzenie obiektów</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span><span>🔬 30h lab</span>
+        </div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:#065f46">
+          <h4>Przetwarzanie Języka Naturalnego</h4>
+          <span class="sem-badge">Sem. 7</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>Tokenizacja, Word2Vec, GloVe</li>
+            <li>Architektura transformera</li>
+            <li>BERT, GPT, T5</li>
+            <li>Fine-tuning modeli</li>
+            <li>Analiza sentymentu, NER</li>
+            <li>Projektowanie chatbotów</li>
+            <li>Kompresja i kwantyzacja</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span><span>🔬 30h lab</span>
+        </div>
+      </div>
+    </div>
+    <p class="lecturers">dr hab. Jacek Winiarski, dr Albert Śledzianiowski, mgr Paweł Czapiewski</p>
+  </section>
+
+  <!-- ═══ INTERNET RZECZY ═══ -->
+  <section id="iot" class="spec-section">
+    <div class="section-intro">
+      <div class="section-bar" style="background:var(--color-iot)"></div>
+      <div>
+        <h2 style="color:var(--color-iot)">📡 Internet Rzeczy (IoT)</h2>
+        <p>Projektowanie systemów IoT, prototypowanie, RTOS oraz programowanie platform sprzętowych.</p>
+      </div>
+    </div>
+
+    <div class="plan-table-wrap" style="margin-bottom:1.25rem;">
+      <h3>Plan specjalizacji</h3>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Przedmiot</th><th>Semestr</th><th>Wykład</th><th>Laboratorium</th><th>Zaliczenie</th><th>ECTS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Szybkie prototypowanie</td>
+              <td data-label="Semestr">5</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Systemy czasu rzeczywistego</td>
+              <td data-label="Semestr">5</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Komunikacja i protokoły dla IoT</td>
+              <td data-label="Semestr">6</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+            <tr>
+              <td data-label="Przedmiot" style="font-weight:600">Programowanie platform sprzętowych</td>
+              <td data-label="Semestr">7</td><td data-label="Wykład">30h</td><td data-label="Laboratorium">30h</td>
+              <td data-label="Zaliczenie">egzamin</td><td data-label="ECTS"><span class="ects-badge">5</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="subjects-grid">
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:var(--color-iot)">
+          <h4>Szybkie Prototypowanie</h4>
+          <span class="sem-badge">Sem. 5</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>Projektowanie w Tinkercad i Blender</li>
+            <li>Przygotowanie plików STL i G-code</li>
+            <li>Technologie druku FDM, SLA, SLS</li>
+            <li>Materiały stosowane w druku 3D</li>
+            <li>Orientacja wydruku</li>
+            <li>Wymiarowanie obiektów</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span><span>🔬 30h lab</span>
+        </div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:var(--color-iot)">
+          <h4>Systemy Czasu Rzeczywistego</h4>
+          <span class="sem-badge">Sem. 5</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>Wymagania czasowe i klasyfikacja</li>
+            <li>Algorytmy szeregowania zadań</li>
+            <li>Przerwania i synchronizacja</li>
+            <li>Komunikacja między procesami</li>
+            <li>RTOS i QNX</li>
+            <li>Prototypowanie z FPGA</li>
+            <li>Optymalizacja i zarządzanie energią</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span><span>🔬 30h lab</span>
+        </div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:#c2410c">
+          <h4>Komunikacja i Protokoły dla IoT</h4>
+          <span class="sem-badge">Sem. 6</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>Architektura systemów IoT</li>
+            <li>Mikrokontrolery i komputery SBC</li>
+            <li>Protokoły IoT i MQTT</li>
+            <li>Konfiguracja urządzeń</li>
+            <li>Bezpieczeństwo transmisji</li>
+            <li>Cisco Packet Tracer</li>
+            <li>Wdrażanie rozwiązań IoT</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span><span>🔬 30h lab</span>
+        </div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-card-header" style="background:#9a3412">
+          <h4>Programowanie Platform Sprzętowych</h4>
+          <span class="sem-badge">Sem. 7</span>
+        </div>
+        <div class="subject-card-body">
+          <ul>
+            <li>Arduino i AVR</li>
+            <li>Raspberry Pi (C++, Python, Node.js)</li>
+            <li>Mikrokontrolery MSP430 i ATtiny</li>
+            <li>Sterowniki PLC</li>
+            <li>Ladder Logic i Structured Text</li>
+            <li>Programowanie niskopoziomowe</li>
+            <li>Optymalizacja zasobów i energii</li>
+          </ul>
+        </div>
+        <div class="subject-card-footer">
+          <span>📖 30h wykładu</span><span>🔬 30h lab</span>
+        </div>
+      </div>
+    </div>
+    <p class="lecturers">dr inż. P. Syty, mgr Michał Hyla, Antoni Ulenberg, Marek Kudła</p>
+  </section>
+
+</main>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <p>Polsko-Japońska Akademia Technik Komputerowych — Gdańsk</p>
+  <p style="margin-top:0.25rem">Informatyka I stopnia · studia stacjonarne</p>
+</footer>
+
+<script>
+  // Highlight nav links on scroll
+  const sections = document.querySelectorAll('[id]');
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+  function onScroll() {
+    let current = '';
+    sections.forEach(sec => {
+      const top = sec.getBoundingClientRect().top;
+      if (top <= 80) current = sec.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+</body>
+</html>
