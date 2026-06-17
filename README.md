@@ -27,6 +27,8 @@ Specjalizacja skupiona na projektowaniu, tworzeniu i utrzymaniu nowoczesnych apl
 | Technologie DevOps | 6 | 30 | 30 | egzamin | 5 |
 | Trendy w Aplikacjach Internetowych | 7 | 30 | 30 | egzamin | 5 |
 
+> mgr inż. Adam Urbanowicz, mgr Mateusz Miotk
+
 ## Cyberbezpieczeństwo
 
 Specjalizacja dla osób zainteresowanych analizą incydentów, testowaniem bezpieczeństwa oraz projektowaniem odpornych architektur IT.
@@ -37,6 +39,8 @@ Specjalizacja dla osób zainteresowanych analizą incydentów, testowaniem bezpi
 | Analiza incydentów cyberbezpieczeństwa | 5 | 30 | 30 | egzamin | 5 |
 | Testowanie bezpieczeństwa systemów IT | 6 | 30 | 30 | egzamin | 5 |
 | Projektowanie bezpiecznych architektur IT | 7 | 30 | 30 | egzamin | 5 |
+
+> mgr. Andrzej Stojek, mgr. Michał Hyla, mgr. Paweł Lelental
 
 ## Inżynieria gier komputerowych
 
@@ -49,6 +53,8 @@ Specjalizacja obejmuje pełny proces tworzenia gier: od prototypowania, przez mo
 | Animacje komputerowe | 6 | 30 | 30 | egzamin | 5 |
 | Wytwarzanie Gier 2 | 7 | 30 | 30 | egzamin | 5 |
 
+> Aleksander Polin
+
 ## Sztuczna inteligencja
 
 Specjalizacja koncentruje się na uczeniu maszynowym, metodach głębokiego uczenia, analizie obrazu oraz przetwarzaniu języka naturalnego.
@@ -60,6 +66,8 @@ Specjalizacja koncentruje się na uczeniu maszynowym, metodach głębokiego ucze
 | Computer Vision | 6 | 30 | 30 | egzamin | 5 |
 | Przetwarzanie języka naturalnego | 7 | 30 | 30 | egzamin | 5 |
 
+> dr hab. Jacek Winiarski, dr. Albert Śledzianiowski
+
 ## Internet rzeczy
 
 Specjalizacja związana z projektowaniem rozwiązań IoT, szybkim prototypowaniem, systemami czasu rzeczywistego oraz programowaniem platform sprzętowych.
@@ -70,6 +78,8 @@ Specjalizacja związana z projektowaniem rozwiązań IoT, szybkim prototypowanie
 | Systemy czasu rzeczywistego | 5 | 30 | 30 | egzamin | 5 |
 | Komunikacja i protokoły dla Internetu Rzeczy | 6 | 30 | 30 | egzamin | 5 |
 | Programowanie platform sprzętowych | 7 | 30 | 30 | egzamin | 5 |
+
+> dr R. Suski, mgr Michał Hyla, Antoni Ulenberg, Marek Kudła
 
 ---
 
